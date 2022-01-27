@@ -5,7 +5,7 @@
 
 {{- with .Params.Tags }}
 {{- $hashtags := newScratch}}
-{{- range . }}{{ $hashtags.Add "tags" (slice (replaceRE "(\\s)" "" . ))}}{{end}}
+{{- range . }}{{ $hashtags.Add "tags" (slice (replaceRE "(\\s)" "" . ))}}{{ end }}
 {{- $.Scratch.Set "tags" (delimit ($hashtags.Get "tags") ",") }}
 {{- end -}}
 
